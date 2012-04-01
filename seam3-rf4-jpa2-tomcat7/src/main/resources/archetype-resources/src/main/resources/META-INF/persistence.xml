@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="widgets" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/comp/env/${jdbcJndiName}</jta-data-source>
+		<properties>
+			<property name="hibernate.dialect" value="${hibernateDialect}" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="true" />
+			<!--
+	        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			-->
+			<property name="hibernate.default_batch_fetch_size" value="8" />
+			<property name="hibernate.order_updates" value="true" />
+			<property name="hibernate.order_inserts" value="true" />
+			<property name="hibernate.jdbc.batch_size" value="50" />
+		</properties>
+	</persistence-unit>
+</persistence>

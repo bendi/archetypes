@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.bedkowski.archetypes</groupId>
+	<artifactId>seam3-rf4-jpa2-tomcat7</artifactId>
+	<version>1.0</version>
+	<url>http://www.2lips.pl/blog/seam3-jpa2-tomcat-archetypes</url>
+
+	<properties>
+		<wagon-ftp.version>1.0-beta-7</wagon-ftp.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>${wagon-ftp.version}</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>repo.bedkowski.pl</id>
+			<url>ftp://bendi.vot.pl/maven2</url>
+		</repository>
+	</distributionManagement>
+</project>
