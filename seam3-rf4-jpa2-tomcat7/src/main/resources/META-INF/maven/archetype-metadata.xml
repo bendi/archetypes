@@ -19,12 +19,14 @@
 	</requiredProperties>
 
 	<fileSets>
+
 		<fileSet filtered="false" encoding="UTF-8">
 			<directory>src/main/java</directory>
 			<includes>
 				<include>**/*.java</include>
 			</includes>
 		</fileSet>
+
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory>src/main/resources</directory>
 			<includes>
@@ -32,6 +34,15 @@
 				<include>**/*.sql</include>
 			</includes>
 		</fileSet>
+
+		<!--
+			enable filtering only for xml config files
+			- firstly because binary files eg. images get corrupted
+			- secondly due to optimisation done by velocity
+			   where #{widgets} become #widgets and JSF parser does not treat it as
+			   variable so you might get exception like this one:
+			   http://seamframework.org/Documentation/CDIQuickstartForMavenUsers#comment111076
+		-->
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory>src/main/webapp</directory>
 			<includes>
@@ -44,5 +55,6 @@
 				<exclude>**/*.xml</exclude>
 			</excludes>
 		</fileSet>
+
 	</fileSets>
 </archetype-descriptor>
